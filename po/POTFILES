@@ -1,0 +1,4 @@
+data/com.felipekinoshita.Count.desktop.in
+data/com.felipekinoshita.Count.metainfo.xml.in
+data/com.felipekinoshita.Count.gschema.xml
+src/window.ui

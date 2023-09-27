@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="Window" parent="AdwApplicationWindow">
+    <!-- <property name="title">Count</property> -->
+    <property name="default-width">500</property>
+    <property name="default-height">650</property>
+
+    <property name="content">
+      <object class="AdwToolbarView">
+
+        <style>
+          <class name="text-box"/>
+        </style>
+
+        <child type="top">
+          <object class="AdwHeaderBar" id="header_bar">
+
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="primary">True</property>
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Menu</property>
+                <property name="menu-model">primary_menu</property>
+              </object>
+            </child>
+
+          </object>
+        </child>
+
+        <property name="content">
+          <object class="GtkScrolledWindow">
+
+            <child>
+              <object class="GtkSourceView" id="text_view">
+                <property name="highlight-current-line">true</property>
+                <property name="tab-width">4</property>
+                <property name="auto-indent">True</property>
+                <property name="monospace">true</property>
+                <property name="wrap-mode">word-char</property>
+                <property name="top-margin">6</property>
+                <property name="bottom-margin">36</property>
+                <property name="left-margin">36</property>
+                <property name="right-margin">36</property>
+
+                <style>
+                  <class name="font-increased"/>
+                </style>
+
+                <property name="buffer">
+                  <object class="GtkSourceBuffer" id="text_buffer">
+                    <signal name="changed" handler="on_text_changed" swapped="true"/>
+                  </object>
+                </property>
+
+              </object>
+            </child>
+
+          </object>
+        </property>
+
+      </object>
+    </property>
+  </template>
+
+  <menu id="primary_menu">
+    <section>
+
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+
+      <item>
+        <attribute name="label" translatable="yes">_About Count</attribute>
+        <attribute name="action">win.about</attribute>
+      </item>
+
+    </section>
+
+  </menu>
+
+</interface>
